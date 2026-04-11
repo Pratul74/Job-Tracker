@@ -16,7 +16,7 @@ class UserRegisterSerializer(ModelSerializer):
         }
     def validate(self, data):
         if data['password']!=data['password2']:
-            raise ValidationError("Password must be same")
+            raise ValidationError({'password': 'password must match'})
         return data
     
     def create(self, validated_data):
